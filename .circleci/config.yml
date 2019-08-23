@@ -12,26 +12,20 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - git remote add acquia diffygithub@svn-6234.devcloud.hosting.acquia.com:diffygithub.git
-      - git push acquia master
-      - sleep 20
-      - run:
-          name: Push code to Acquia
-          command: |
-            ssh diffygithub.dev@free-7955.devcloud.hosting.acquia.com 'cd /var/www/html/diffygithub.dev/docroot && drush cr'
+      - run: git remote add acquia diffygithub@svn-6234.devcloud.hosting.acquia.com:diffygithub.git
+      - run: git push acquia master
+      - run: sleep 20
+      - run: ssh diffygithub.dev@free-7955.devcloud.hosting.acquia.com 'cd /var/www/html/diffygithub.dev/docroot && drush cr'
   push_stage:
     docker:
       - image: circleci/php:7.2
     working_directory: ~/repo
     steps:
       - checkout
-      - git remote add acquia diffygithub@svn-6234.devcloud.hosting.acquia.com:diffygithub.git
-      - git push acquia staging
-      - sleep 20
-      - run:
-          name: Push code to Acquia
-          command: |
-            ssh diffygithub.test@free-7955.devcloud.hosting.acquia.com 'cd /var/www/html/diffygithub.test/docroot && drush cr'
+      - run: git remote add acquia diffygithub@svn-6234.devcloud.hosting.acquia.com:diffygithub.git
+      - run: git push acquia staging
+      - run: sleep 20
+      - run: ssh diffygithub.test@free-7955.devcloud.hosting.acquia.com 'cd /var/www/html/diffygithub.test/docroot && drush cr'
 workflows:
   version: 2
   build-deploy:
