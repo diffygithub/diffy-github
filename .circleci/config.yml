@@ -6,6 +6,11 @@
 version: 2.0
 
 jobs:
+  build:
+    docker:
+      - image: circleci/php:7.2
+    steps:
+      - run: echo $CIRCLE_BRANCH
   push_dev:
     docker:
       - image: circleci/php:7.2
