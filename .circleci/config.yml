@@ -13,12 +13,12 @@ jobs:
     steps:
       - checkout
       - run: |
-        echo 'svn-6234.devcloud.hosting.acquia.com,34.227.183.152 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwD1I/sBX6t+RjnTm8X7UdK4mCHjxC4S+MB3rSG3SCCoPN52bkvvwdgcaot+u9jkNRqUW57cg8Sxn0qvqSNoXAE2EeHCRhlFbsrPGdTU98F53zY1F3oE5KBv/LT+51H7lgll68AWOcLUgTwNdjqjaXUtYt0TJYcaalV/J9UMUFjbMV1j7IX/TjIHavB487no7jhUzNq/VjqUKMVW/NdBDxKRfzpuu2kFpVJmF7eh7MYjhMDkiEq/fV5be44TNosa0N0O6viCu7MGpDX/kaKYaH9t4i5aHqdk+eIV265s6l7eeXkpk2xhPiKzLQYnUyr58q996ULpk2CMsqNkRHwMlz' >> ~/.ssh/known_hosts
-        echo 'free-7955.devcloud.hosting.acquia.com,34.239.93.32 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBccZRkbD7zt9+GL9LbtBl2OOxh60EBYOS66KxeU4Gcnzdgwh1ZfCMrCaXAMETxMxrU0AwbWJ2ayyHBbVWhK7bfqS+R+EOR8++a4aSxpVbTrxXtyTQVfbptBmht9rHVaGhgGUoKVvUN4GpfG2KGLog97EjSF0JeRrC9XM6WcA2p6bHQJOE/CmsFWpyLKB7ZDaE1Pu0Qct/h3ZezQ/Os2hrluZ0BP9f0PA5H1nB7qn+JtDX+2baBrXIA4Tdfh1TKsrScWeiS2qHJ9vvewqd2t0PsIRp9ezczJKo0iYTzbvkRPNOsAFtQmcsDxBK/CgQgmUXeChGMqMwsnSDZd9vn6jb' >> ~/.ssh/known_hosts
-        git remote add acquia diffygithub@svn-6234.devcloud.hosting.acquia.com:diffygithub.git
-        git push acquia master
-        sleep 20
-        ssh diffygithub.dev@free-7955.devcloud.hosting.acquia.com 'cd /var/www/html/diffygithub.dev/docroot && drush cr'
+          echo 'svn-6234.devcloud.hosting.acquia.com,34.227.183.152 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwD1I/sBX6t+RjnTm8X7UdK4mCHjxC4S+MB3rSG3SCCoPN52bkvvwdgcaot+u9jkNRqUW57cg8Sxn0qvqSNoXAE2EeHCRhlFbsrPGdTU98F53zY1F3oE5KBv/LT+51H7lgll68AWOcLUgTwNdjqjaXUtYt0TJYcaalV/J9UMUFjbMV1j7IX/TjIHavB487no7jhUzNq/VjqUKMVW/NdBDxKRfzpuu2kFpVJmF7eh7MYjhMDkiEq/fV5be44TNosa0N0O6viCu7MGpDX/kaKYaH9t4i5aHqdk+eIV265s6l7eeXkpk2xhPiKzLQYnUyr58q996ULpk2CMsqNkRHwMlz' >> ~/.ssh/known_hosts
+          echo 'free-7955.devcloud.hosting.acquia.com,34.239.93.32 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBccZRkbD7zt9+GL9LbtBl2OOxh60EBYOS66KxeU4Gcnzdgwh1ZfCMrCaXAMETxMxrU0AwbWJ2ayyHBbVWhK7bfqS+R+EOR8++a4aSxpVbTrxXtyTQVfbptBmht9rHVaGhgGUoKVvUN4GpfG2KGLog97EjSF0JeRrC9XM6WcA2p6bHQJOE/CmsFWpyLKB7ZDaE1Pu0Qct/h3ZezQ/Os2hrluZ0BP9f0PA5H1nB7qn+JtDX+2baBrXIA4Tdfh1TKsrScWeiS2qHJ9vvewqd2t0PsIRp9ezczJKo0iYTzbvkRPNOsAFtQmcsDxBK/CgQgmUXeChGMqMwsnSDZd9vn6jb' >> ~/.ssh/known_hosts
+          git remote add acquia diffygithub@svn-6234.devcloud.hosting.acquia.com:diffygithub.git
+          git push acquia master
+          sleep 20
+          ssh diffygithub.dev@free-7955.devcloud.hosting.acquia.com 'cd /var/www/html/diffygithub.dev/docroot && drush cr'
   push_stage:
     docker:
       - image: circleci/php:7.2
@@ -26,12 +26,12 @@ jobs:
     steps:
       - checkout
       - run: |
-        echo 'svn-6234.devcloud.hosting.acquia.com,34.227.183.152 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwD1I/sBX6t+RjnTm8X7UdK4mCHjxC4S+MB3rSG3SCCoPN52bkvvwdgcaot+u9jkNRqUW57cg8Sxn0qvqSNoXAE2EeHCRhlFbsrPGdTU98F53zY1F3oE5KBv/LT+51H7lgll68AWOcLUgTwNdjqjaXUtYt0TJYcaalV/J9UMUFjbMV1j7IX/TjIHavB487no7jhUzNq/VjqUKMVW/NdBDxKRfzpuu2kFpVJmF7eh7MYjhMDkiEq/fV5be44TNosa0N0O6viCu7MGpDX/kaKYaH9t4i5aHqdk+eIV265s6l7eeXkpk2xhPiKzLQYnUyr58q996ULpk2CMsqNkRHwMlz' >> ~/.ssh/known_hosts
-        echo 'free-7955.devcloud.hosting.acquia.com,34.239.93.32 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBccZRkbD7zt9+GL9LbtBl2OOxh60EBYOS66KxeU4Gcnzdgwh1ZfCMrCaXAMETxMxrU0AwbWJ2ayyHBbVWhK7bfqS+R+EOR8++a4aSxpVbTrxXtyTQVfbptBmht9rHVaGhgGUoKVvUN4GpfG2KGLog97EjSF0JeRrC9XM6WcA2p6bHQJOE/CmsFWpyLKB7ZDaE1Pu0Qct/h3ZezQ/Os2hrluZ0BP9f0PA5H1nB7qn+JtDX+2baBrXIA4Tdfh1TKsrScWeiS2qHJ9vvewqd2t0PsIRp9ezczJKo0iYTzbvkRPNOsAFtQmcsDxBK/CgQgmUXeChGMqMwsnSDZd9vn6jb' >> ~/.ssh/known_hosts
-        git remote add acquia diffygithub@svn-6234.devcloud.hosting.acquia.com:diffygithub.git
-        git push acquia staging
-        sleep 20
-        ssh diffygithub.test@free-7955.devcloud.hosting.acquia.com 'cd /var/www/html/diffygithub.test/docroot && drush cr'
+          echo 'svn-6234.devcloud.hosting.acquia.com,34.227.183.152 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwD1I/sBX6t+RjnTm8X7UdK4mCHjxC4S+MB3rSG3SCCoPN52bkvvwdgcaot+u9jkNRqUW57cg8Sxn0qvqSNoXAE2EeHCRhlFbsrPGdTU98F53zY1F3oE5KBv/LT+51H7lgll68AWOcLUgTwNdjqjaXUtYt0TJYcaalV/J9UMUFjbMV1j7IX/TjIHavB487no7jhUzNq/VjqUKMVW/NdBDxKRfzpuu2kFpVJmF7eh7MYjhMDkiEq/fV5be44TNosa0N0O6viCu7MGpDX/kaKYaH9t4i5aHqdk+eIV265s6l7eeXkpk2xhPiKzLQYnUyr58q996ULpk2CMsqNkRHwMlz' >> ~/.ssh/known_hosts
+          echo 'free-7955.devcloud.hosting.acquia.com,34.239.93.32 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBccZRkbD7zt9+GL9LbtBl2OOxh60EBYOS66KxeU4Gcnzdgwh1ZfCMrCaXAMETxMxrU0AwbWJ2ayyHBbVWhK7bfqS+R+EOR8++a4aSxpVbTrxXtyTQVfbptBmht9rHVaGhgGUoKVvUN4GpfG2KGLog97EjSF0JeRrC9XM6WcA2p6bHQJOE/CmsFWpyLKB7ZDaE1Pu0Qct/h3ZezQ/Os2hrluZ0BP9f0PA5H1nB7qn+JtDX+2baBrXIA4Tdfh1TKsrScWeiS2qHJ9vvewqd2t0PsIRp9ezczJKo0iYTzbvkRPNOsAFtQmcsDxBK/CgQgmUXeChGMqMwsnSDZd9vn6jb' >> ~/.ssh/known_hosts
+          git remote add acquia diffygithub@svn-6234.devcloud.hosting.acquia.com:diffygithub.git
+          git push acquia staging
+          sleep 20
+          ssh diffygithub.test@free-7955.devcloud.hosting.acquia.com 'cd /var/www/html/diffygithub.test/docroot && drush cr'
 workflows:
   version: 2
   build-deploy:
