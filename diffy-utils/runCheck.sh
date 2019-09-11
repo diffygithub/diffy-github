@@ -4,16 +4,13 @@ echo "==================================================="
 echo "============= Run diffy compare and Github check =="
 echo "==================================================="
 
-
 KEY=cb467e043db41d1dd3196607790adbe6
 PROJECTID=999
 ENV1URL="http://site.com"
 ENV2URL="https://site2.com/"
 
 GITHUBTOKEN="$1"
-
 COMMITSHA="$2"
-
 
 echo "============= GITHUBTOKEN =========="
 echo $GITHUBTOKEN
