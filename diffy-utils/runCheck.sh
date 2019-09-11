@@ -3,7 +3,6 @@
 echo "==================================================="
 echo "============= Run diffy compare and Github check =="
 echo "==================================================="
-
 KEY=$API_KEY
 PROJECTID=$PROJCT_ID
 ENV1URL="http://site.com"
