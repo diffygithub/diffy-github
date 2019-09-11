@@ -31,7 +31,7 @@ ENV2CREDSPASS=''
 TOKEN=`curl -s \
 -H "Accept: application/json" \
 -H "Content-Type:application/json" \
--X POST -d '{"key":"'$KEY'"}' "http://diffy.docksal/api/auth/key" \
+-X POST -d '{"key":"'$KEY'"}' "https://app.diffy.website/api/auth/key" \
 | grep token | tr ':' ' ' | tr '}' ' ' |  awk  '{print $2}'`
 
 TOKEN="${TOKEN//\"/}"
@@ -64,7 +64,7 @@ else
 }
 EOF
 ) \
-"http://diffy.docksal/api/projects/${PROJECTID}/compare"`
+"https://app.diffy.website/api/projects/${PROJECTID}/compare"`
 
 
 re='^[0-9]+$'
