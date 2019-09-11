@@ -9,8 +9,8 @@ PROJECTID=999
 ENV1URL="http://site.com"
 ENV2URL="https://site2.com/"
 
-GITHUBTOKEN="$1"
-COMMITSHA="$2"
+GITHUBTOKEN="$2"
+COMMITSHA="$1"
 
 echo "============= GITHUBTOKEN =========="
 echo $GITHUBTOKEN
