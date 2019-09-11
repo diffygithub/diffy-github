@@ -24,7 +24,7 @@ jobs:
           git push acquia master
           sleep 20
           ssh diffygithub.dev@free-7955.devcloud.hosting.acquia.com 'cd /var/www/html/diffygithub.dev/docroot && drush cr'
-          ssh diffygithub.dev@free-7955.devcloud.hosting.acquia.com "cd /var/www/html/diffygithub.dev/diffy-utils && bash runCheck.sh ${CIRCLE_SHA1}"
+          ssh diffygithub.dev@free-7955.devcloud.hosting.acquia.com "cd /var/www/html/diffygithub.dev/diffy-utils && bash runCheck.sh ${CIRCLE_SHA1} ${API_KEY} ${PROJECT_ID}"
   push_stage:
     docker:
       - image: circleci/php:7.2

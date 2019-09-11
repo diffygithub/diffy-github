@@ -3,21 +3,22 @@
 echo "==================================================="
 echo "============= Run diffy compare and Github check =="
 echo "==================================================="
-KEY=$API_KEY
-PROJECTID=$PROJECT_ID
+COMMIT_SHA="$1"
+API_KEY="$2"
+PROJECT_ID="$3"
 ENV1URL="http://site.com"
 ENV2URL="https://site2.com/"
 
-COMMITSHA="$1"
 
-echo "============= COMMITSHA =========="
-echo $COMMITSHA
 
-echo "============= KEY =========="
-echo $KEY
+echo "============= COMMIT_SHA =========="
+echo $COMMIT_SHA
 
-echo "============= PROJECTID =========="
-echo $PROJECTID
+echo "============= API_KEY =========="
+echo $API_KEY
+
+echo "============= PROJECT_ID =========="
+echo $PROJECT_ID
 
 ENV1CREDSMODE=false
 ENV1CREDSUSER=''
@@ -30,7 +31,7 @@ ENV2CREDSPASS=''
 TOKEN=`curl -s \
 -H "Accept: application/json" \
 -H "Content-Type:application/json" \
--X POST -d '{"key":"'$KEY'"}' "https://app.diffy.website/api/auth/key" \
+-X POST -d '{"key":"'$API_KEY'"}' "https://app.diffy.website/api/auth/key" \
 | grep token | tr ':' ' ' | tr '}' ' ' |  awk  '{print $2}'`
 
 TOKEN="${TOKEN//\"/}"
@@ -59,11 +60,11 @@ else
 	"env2CredsMode": "$ENV2CREDSMODE",
 	"env2CredsUser": "$ENV2CREDSUSER",
 	"env2CredsPass": "$ENV2CREDSPASS",
-	"commitSha": "$COMMITSHA"
+	"commitSha": "$COMMIT_SHA"
 }
 EOF
 ) \
-"https://app.diffy.website/api/projects/${PROJECTID}/compare"`
+"https://app.diffy.website/api/projects/${PROJECT_ID}/compare"`
 
 
 re='^[0-9]+$'
