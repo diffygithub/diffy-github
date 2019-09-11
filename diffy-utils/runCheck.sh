@@ -9,21 +9,18 @@ PROJECTID=999
 ENV1URL="http://site.com"
 ENV2URL="https://site2.com/"
 
-GITHUBTOKEN="$2"
 COMMITSHA="$1"
 
-echo "============= GITHUBTOKEN =========="
-echo $GITHUBTOKEN
 echo "============= COMMITSHA =========="
 echo $COMMITSHA
 
 ENV1CREDSMODE=false
-ENV1CREDSUSER=null
-ENV1CREDSPASS=null
+ENV1CREDSUSER=''
+ENV1CREDSPASS=''
 
 ENV2CREDSMODE=false
-ENV2CREDSUSER=null
-ENV2CREDSPASS=null
+ENV2CREDSUSER=''
+ENV2CREDSPASS=''
 
 TOKEN=`curl -s \
 -H "Accept: application/json" \
