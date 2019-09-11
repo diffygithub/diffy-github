@@ -4,8 +4,8 @@ echo "==================================================="
 echo "============= Run diffy compare and Github check =="
 echo "==================================================="
 
-KEY=cb467e043db41d1dd3196607790adbe6
-PROJECTID=999
+KEY=$API_KEY
+PROJECTID=$PROJCT_ID
 ENV1URL="http://site.com"
 ENV2URL="https://site2.com/"
 
@@ -13,6 +13,12 @@ COMMITSHA="$1"
 
 echo "============= COMMITSHA =========="
 echo $COMMITSHA
+
+echo "============= KEY =========="
+echo $KEY
+
+echo "============= PROJECTID =========="
+echo $PROJECTID
 
 ENV1CREDSMODE=false
 ENV1CREDSUSER=''
