@@ -24,10 +24,10 @@ jobs:
           git push acquia $CIRCLE_BRANCH
           sleep 20
           ssh diffygithub.dev@free-7955.devcloud.hosting.acquia.com 'cd /var/www/html/diffygithub.dev/docroot && drush cr'
-          ssh diffygithub.dev@free-7955.devcloud.hosting.acquia.com 'cd /var/www/html/diffygithub.dev/diffy-utils && bash runCheck.sh $CIRCLE_SHA1 $API_KEY'
+          ssh diffygithub.dev@free-7955.devcloud.hosting.acquia.com `cd /var/www/html/diffygithub.dev/diffy-utils && bash runCheck.sh $CIRCLE_SHA1 $API_KEY
   push_dev:
     docker:
-      - image: circleci/php:7.2
+      - image: circleci/php:7.2`
     working_directory: ~/repo
     steps:
       - checkout
