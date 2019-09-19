@@ -26,7 +26,6 @@ echo $COMMIT_SHA
 echo "============= PROJECT_ID =========="
 echo $PROJECT_ID
 
-
 RESULT=`curl -s \
 -H "Accept: application/json" \
 -H "Content-Type:application/json" \
