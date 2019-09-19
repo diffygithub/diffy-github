@@ -8,7 +8,6 @@ API_KEY="$2"
 
 DIFFY_HOST="http://stage.diffy.website"
 
-
 PROJECT_ID="1195"
 ENV1URL="http://diffygithubmxw6ftf7st.devcloud.acquia-sites.com/"
 ENV2URL="http://diffygithubnztrwgbywl.devcloud.acquia-sites.com/"
