@@ -32,17 +32,18 @@ echo "============= PROJECT_ID =========="
 echo $PROJECT_ID
 
 
-TOKEN=`curl -s \
+RESULT=`curl -s \
 -H "Accept: application/json" \
 -H "Content-Type:application/json" \
--X POST -d '{"key":"'$API_KEY'"}' $DIFFY_HOST'api/auth/key' \
+-X POST -d '{"key":"'$API_KEY'"}' $DIFFY_HOST'/api/auth/key' \
 | grep token | tr ':' ' ' | tr '}' ' ' |  awk  '{print $2}'`
 
-TOKEN="${TOKEN//\"/}"
+TOKEN="${RESULT//\"/}"
 
 
 if [[ -z "$TOKEN" ]]; then
    echo "============= Diffy authorization failed =========="
+   echo $RESULT
    exit 1
 else
    echo "============= Diffy authorization success ========="
@@ -68,7 +69,7 @@ else
 }
 EOF
 ) \
-$DIFFY_HOST"api/projects/${PROJECT_ID}/compare"`
+$DIFFY_HOST"/api/projects/${PROJECT_ID}/compare"`
 
 
 re='^[0-9]+$'
