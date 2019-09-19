@@ -20,12 +20,8 @@ ENV2CREDSMODE=false
 ENV2CREDSUSER=''
 ENV2CREDSPASS=''
 
-
 echo "============= COMMIT_SHA =========="
 echo $COMMIT_SHA
-
-echo "============= API_KEY =========="
-echo $API_KEY
 
 echo "============= PROJECT_ID =========="
 echo $PROJECT_ID
