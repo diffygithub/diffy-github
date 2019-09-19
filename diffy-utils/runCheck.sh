@@ -5,10 +5,21 @@ echo "============= Run diffy compare and Github check =="
 echo "==================================================="
 COMMIT_SHA="$1"
 API_KEY="$2"
-PROJECT_ID="$3"
-ENV1URL="http://site.com"
-ENV2URL="https://site2.com/"
 
+DIFFY_HOST="http://stage.diffy.website"
+
+
+PROJECT_ID="1195"
+ENV1URL="http://diffygithubmxw6ftf7st.devcloud.acquia-sites.com/"
+ENV2URL="http://diffygithubnztrwgbywl.devcloud.acquia-sites.com/"
+
+ENV1CREDSMODE=false
+ENV1CREDSUSER=''
+ENV1CREDSPASS=''
+
+ENV2CREDSMODE=false
+ENV2CREDSUSER=''
+ENV2CREDSPASS=''
 
 
 echo "============= COMMIT_SHA =========="
@@ -20,18 +31,11 @@ echo $API_KEY
 echo "============= PROJECT_ID =========="
 echo $PROJECT_ID
 
-ENV1CREDSMODE=false
-ENV1CREDSUSER=''
-ENV1CREDSPASS=''
-
-ENV2CREDSMODE=false
-ENV2CREDSUSER=''
-ENV2CREDSPASS=''
 
 TOKEN=`curl -s \
 -H "Accept: application/json" \
 -H "Content-Type:application/json" \
--X POST -d '{"key":"'$API_KEY'"}' "https://app.diffy.website/api/auth/key" \
+-X POST -d '{"key":"'$API_KEY'"}' $DIFFY_HOST'api/auth/key' \
 | grep token | tr ':' ' ' | tr '}' ' ' |  awk  '{print $2}'`
 
 TOKEN="${TOKEN//\"/}"
@@ -64,7 +68,7 @@ else
 }
 EOF
 ) \
-"https://app.diffy.website/api/projects/${PROJECT_ID}/compare"`
+$DIFFY_HOST"api/projects/${PROJECT_ID}/compare"`
 
 
 re='^[0-9]+$'
